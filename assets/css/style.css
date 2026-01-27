@@ -1,0 +1,917 @@
+@charset "utf-8";
+
+/* ===========================================
+   ◆ リセットの役割をする記述 
+===========================================*/
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+a {
+    text-decoration: none;
+}
+
+address {
+    font-style: normal;
+}
+
+
+
+
+/* ===========================================
+   ◆ 生成CSS↓↓
+===========================================*/
+
+
+:root {
+    --bg-ivory: #F9F8F4;
+    --forest-green: #2C3E2D;
+    --ash-gold: #B4A27B;
+    --text-dark: #333333;
+    --cursor-color: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* ヘッダーの高さ分を指定 */
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-ivory);
+    color: var(--text-dark);
+    line-height: 1.8;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+/* --- カスタムカーソル --- */
+#cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: var(--cursor-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out;
+    filter: blur(4px);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+section {
+    padding: 50px 0;
+}
+
+h2 {
+    padding: 50px 0 30px;
+}
+
+.gold {
+    color: var(--ash-gold);
+}
+
+
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 1000;
+    background: rgba(249, 248, 244, 0.8);
+}
+
+
+
+/* ロゴ全体のスタイル */
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 400;
+    z-index: 1100;
+
+    /* 横並びと中央揃えの設定 */
+    display: flex;
+    align-items: center;
+    /* 垂直方向の真ん中揃え */
+    gap: 15px;
+    /* ロゴ画像とテキストの間の余白 */
+}
+
+/* ロゴ画像のサイズ指定 */
+.logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    /* 画像が歪まないように調整 */
+}
+
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--forest-green);
+    font-size: 0.8rem;
+
+    /*下線アニメーション追記*/
+    position: relative;
+    display: inline-block;
+}
+
+
+/*下線アニメーション追記(RESERVEボタン以外)*/
+.nav-links a:not(.btn-reserve-nav)::after {
+    position: absolute;
+    bottom: -4px;
+    /*テキストからの距離*/
+    left: 0;
+    content: '';
+    width: 100%;
+    /*hover時に表示*/
+    height: 2px;
+    /*下線の高さ*/
+    background: var(--ash-gold);
+    /*下線の色*/
+    transform: scale(0, 1);
+    /*トランス前の下線*/
+    transform-origin: left top;
+    /*トランスフォーム開始位置*/
+    transition: transform .3s;
+    /*アニメーション速度*/
+}
+
+/* ホバー時もボタン以外に適用 */
+.nav-links a:not(.btn-reserve-nav):hover::after {
+    transform: scale(1, 1);
+    /*トランス後の下線*/
+}
+
+/*予約ボタン*/
+.btn-reserve-nav {
+    border: 1px solid var(--ash-gold);
+    padding: 8px 20px;
+    color: var(--ash-gold) !important;
+    text-decoration: none;
+}
+
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background: var(--forest-green);
+    margin: 6px 0;
+    transition: 0.4s;
+
+}
+
+
+/*ヘッダーメニューの下からmv画像を表示*/
+main {
+    padding-top: 100px;
+    ;
+}
+
+/* Main Visual */
+/* メインビジュアルの親要素 */
+.mv {
+    position: relative;
+    /* 子要素（画像と文字）の基準点になる */
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    /* 画像がはみ出さないように */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 0;
+}
+
+/* （imgタグ）のスタイル */
+.mv-bg-img {
+    position: absolute;
+    /* 親要素に対して絶対配置 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 背景画像のように、比率を保って画面いっぱいに広げる */
+    z-index: -1;
+    /* テキストより背面に配置 */
+
+    /* 背景を少し暗くして文字を読みやすくする（任意） */
+    /*filter: brightness(0.8);*/
+}
+
+/*MV画像スライドショー追記*/
+/* slickが生成するスライド全体の高さを100%に固定 */
+.mv-bg-img .slick-list,
+.mv-bg-img .slick-track,
+.mv-bg-img .slick-slide>div {
+    height: 100%;
+}
+
+/* 個別のスライド要素 */
+.mv-bg-img div {
+    height: 100%;
+    /* 親の100vhを引き継ぐ */
+}
+
+/* 中の画像（ここが重要！） */
+.mv-bg-img img {
+    width: 100%;
+    height: 100vh;
+    /* 画面の高さに合わせる */
+    object-fit: cover;
+    /* 比率を保って隙間なく埋める */
+}
+
+
+/* テキスト部分 */
+.mv-content {
+    position: absolute;
+    /* 親要素に対して絶対配置 */
+    z-index: 1;
+    /* 画像の上に表示されるように指定 */
+    padding: 0 20px;
+}
+
+.mv-content .big-text {
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+.mv-content p {
+    text-shadow: 4px 5px 7px rgba(0, 0, 0, 0.75);
+}
+
+
+/* Concept */
+.concept-flex {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 60px 0;
+}
+
+.concept-text-v {
+    writing-mode: vertical-rl;
+    font-size: 1.1rem;
+    height: 450px;
+    letter-spacing: 0.5em;
+}
+
+/* 画像を包む枠の設定 */
+.concept-img {
+    flex: 1;
+    height: 450px;
+    /* PCでの高さを固定 */
+    overflow: hidden;
+    /* 画像が枠からはみ出ないように */
+}
+
+/* 中の画像の設定（ここが重要） */
+.concept-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 背景画像の cover と同じ効果 */
+    object-position: center;
+    /* 背景画像の center と同じ効果 */
+    vertical-align: bottom;
+    /* 画像下の謎の隙間を消す */
+}
+
+
+/* News */
+.news-section {
+    background-color: #fff;
+    padding: 0;
+}
+
+.news-item {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+.news-date {
+    width: 150px;
+    color: var(--ash-gold);
+}
+
+
+/*フェードアップ*/
+@keyframes fadeUp-move {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* fadeUpアニメを適用する記述 （このクラスが付くとアニメが動く）*/
+.fadeUpActive {
+    animation: fadeUp-move 1s ease forwards;
+}
+
+/* 要素をあらかじめ下にずらして透明にしておく */
+.fadeUp-trigger {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+
+
+/* STAY アニメーション */
+.stay-card {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stay-card.fade-right {
+    transform: translateX(100px);
+}
+
+.stay-card.fade-left {
+    flex-direction: row-reverse;
+    transform: translateX(-100px);
+}
+
+.stay-card.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.stay-img {
+    width: 55%;
+    height: 400px;
+    background-size: cover;
+    /*background-position: center;*/
+}
+
+.stay-info {
+    width: 45%;
+}
+
+.price {
+    margin-top: 15px;
+    font-weight: 400;
+    border-left: 2px solid var(--ash-gold);
+    padding-left: 15px;
+    font-size: 1.1rem;
+}
+
+/* Experience */
+.experience-section {
+    background-color: #fff;
+    /*padding: 80px 0;*/
+}
+
+.exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    /*margin-top: 40px;*/
+}
+
+.exp-card {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.exp-img-box {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: 15px;
+
+    /* ↓ここから追加 */
+    position: relative;
+    /* 白い帯の配置基準にする */
+}
+
+/* 白い帯（疑似要素）の設定 */
+.exp-img-box::before {
+    content: "";
+    /* 必須要素 */
+    position: absolute;
+    /* 画像に対して絶対配置 */
+    top: 0;
+    /* 一番上に配置 */
+    left: 0;
+    /* 左端から */
+    width: 100%;
+    /* 横幅いっぱい */
+    height: 40px;
+    /* 帯の高さ（40px） */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* 0.7で少し透けさせる */
+    z-index: 1;
+    /* 画像よりも上に重ねる */
+    pointer-events: none;
+    /* 下の画像へのクリック操作を邪魔しない */
+
+    /* ↓ 追加：アニメーションの速度（0.3秒かけて変化） */
+    transition: opacity 0.3s ease;
+}
+
+/* 帯の上の文字 */
+.exp-img-box::after {
+    content: attr(data-label);
+    /* HTMLのdata-labelの値を読み取る */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    /* 帯と同じ高さ */
+    z-index: 2;
+    /* 背景よりも上 */
+
+    /* 文字の見た目と配置 */
+    display: flex;
+    justify-content: center;
+    /* 左右中央 */
+    align-items: center;
+    /* 上下中央 */
+
+    /* 文字サイズを小さめに */
+    /*font-size: 0.7rem; */
+
+    font-weight: bold;
+    color: #333;
+    /* 文字色 */
+    letter-spacing: 0.2em;
+    /* 文字の間隔を広げて高級感を出す */
+    pointer-events: none;
+
+    /* ↓ 追加：アニメーションの速度 */
+    transition: opacity 0.3s ease;
+}
+
+/* --- 追加：ホバー時の動作 --- */
+/* 親要素（.exp-img-box）にマウスが乗ったら、疑似要素を透明にする */
+.exp-img-box:hover::before,
+.exp-img-box:hover::after {
+    opacity: 0;
+}
+
+
+.exp-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.exp-card:hover img {
+    transform: scale(1.1);
+}
+
+
+/* よくあるご質問（Ｑ＆Ａ） */
+#qa dl div {
+    border: solid 1px #ccc;
+    padding: 20px;
+    margin: 0 auto 30px;
+    line-height: 2em;
+    width: 95%;
+}
+
+#qa dl dt {
+    background: url(../images/Qmark30x30.png) no-repeat left center,
+        url(../images/qa_tenkai30x30.png) no-repeat right center;
+}
+
+#qa dl dd {
+    background: url(../images/Amark30x30.png) no-repeat left top 2px;
+    margin-top: 10px;
+}
+
+#qa dl dt,
+dd {
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+/* Q&AアコーディオンでAの部分は最初隠す */
+.accordion-content {
+    display: none;
+}
+
+
+/* Access */
+
+#access {
+    padding: 0;
+}
+
+#access h2 span {
+    display: block;
+    padding-top: 50px;
+}
+
+.access-bk {
+    background-image: url(../images/access_bk_1280x438.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.access-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 30px;
+}
+
+
+.access-flex {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+
+    /* ↓ これを追加：子要素を垂直方向の真ん中に揃える */
+    align-items: center;
+}
+
+.map-box {
+    flex: 1;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.map-box iframe {
+    width: 100%;
+    max-width: 100%;
+}
+
+.transport {
+    flex: 1;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 20px;
+    /* 背景色があるので余白を作ると綺麗です */
+
+}
+
+.transport h3 {
+    border-bottom: 1px solid var(--ash-gold);
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+
+/* CTA */
+.cta {
+    background: var(--forest-green);
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    font-size: 24px;
+    font-weight: bold;
+
+    /*sns-iconの親要素*/
+    position: relative;
+}
+
+.btn-cta-big {
+    display: inline-block;
+    background: var(--ash-gold);
+    color: #fff;
+    padding: 20px 80px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-top: 30px;
+}
+
+.cta .sns-icon {
+    position: absolute;
+    bottom: 0;
+    right: 80px;
+    padding-bottom: 20px;
+}
+
+.sns-icon img {
+    margin-left: 15px;
+}
+
+footer {
+    padding: 60px 0 40px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+footer img {
+    margin-bottom: 60px;
+}
+
+/* ---------------------------
+    トップボタン 
+---------------------------*/
+.to-top {
+    /* ブラウザ右下に固定 */
+    position: fixed;
+    right: 10px;
+    bottom: 0;
+    z-index: 9999;
+}
+
+
+
+
+/* ---------------------------
+     RESPONSIVE (縦積み対応)
+---------------------------*/
+@media (max-width: 950px) {
+    h2 {
+        padding-bottom: 20px;
+    }
+
+    .hamburger {
+        display: block;
+        margin-left: auto;
+        /* これで右寄せになります */
+        padding: 0;
+        /* ボタン自体の余計な余白を消す */
+        width: 25px;
+        /* 三本線の幅に合わせる */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        font-weight: bold;
+        font-size: 26px;
+        /*background: var(--bg-ivory);*/
+        background-color: rgba(249, 248, 244, 0.8);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.5s;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+
+    .container {
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 0;
+    }
+
+
+    /* 縦積み化: STAY (逆順含むすべてを画像上・テキスト下に固定) */
+    .stay-card,
+    .stay-card.fade-left {
+        flex-direction: column;
+        gap: 20px;
+        /*transform: translateY(50px);*/
+        /* スマホは横スライドなし */
+    }
+
+    /*
+    .stay-card.fade-right,
+    .stay-card.fade-left {
+        transform: translateY(50px);
+    }
+    */
+
+    .stay-img {
+        width: 85%;
+        max-width: 550px;
+        height: auto;
+        text-align: center;
+        /* これで中のimgタグが中央に寄ります */
+        margin-bottom: 0;
+        /* 下の余白を一旦リセット */
+    }
+
+    .stay-img img {
+        display: block;
+        width: 100%;
+        /* 親の幅いっぱいに広げる */
+        max-width: 550px;
+        /* PC時の最大幅を超えないように */
+        height: auto;
+        /* 比率を維持する（最重要） */
+    }
+
+    .stay-info {
+        width: 100%;
+        text-align: left;
+        padding-left: 5%;
+    }
+
+    /*access*/
+    .map-box {
+        margin-top: 20px;
+    }
+
+    .transport {
+        margin-bottom: 20px;
+    }
+
+}
+
+/* ---------------------------
+     RESPONSIVE (縦積み対応)(スマホ対応)
+---------------------------*/
+
+@media (max-width: 768px) {
+
+    /*スマホでナビを小さくする場合*/
+    /*header {
+        padding: 15px 20px;
+    }
+     .logo {
+        font-size: 1rem;
+    }
+
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
+    */
+
+    #cursor {
+        display: none;
+        /* スマホではカーソル非表示 */
+    }
+
+    .big-text span {
+        display: block;
+    }
+
+
+    /* 縦積み化: CONCEPT */
+    .concept-flex {
+        flex-direction: column-reverse;
+        gap: 30px;
+
+        /* 中央に配置 */
+        /*align-items: center;  */
+    }
+
+    .concept-text-v {
+        writing-mode: vertical-rl;
+        /* 縦書きを維持 */
+        height: auto;
+        /* 高さはおまかせ */
+        min-height: 350px;
+        /* 縦書きを保つための最低限の高さ */
+
+        /* 横幅の調整 */
+        width: fit-content;
+        /* 文字数に合わせて幅を広げる */
+        max-width: 90%;
+        /* 画面からはみ出さないように */
+
+        /* 余白と間隔の調整 */
+        margin: 0 auto;
+        /* 中央寄せ */
+        letter-spacing: 0.4em;
+        /* 文字の縦の間隔（少し詰めるか広げるかはお好みで） */
+        line-height: 3;
+        /* 行間を広げることで「横幅」が広がります */
+        font-size: 1rem;
+    }
+
+    .concept-img {
+        width: 100%;
+        height: 300px;
+    }
+
+    /* NEWS */
+    .news-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .news-date {
+        width: auto;
+    }
+
+    /* 縦積み化: EXPERIENCE */
+    .exp-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    /* 縦積み化: ACCESS */
+    .access-flex {
+        flex-direction: column;
+    }
+
+    .access-bk {
+        background: url(../images/access_bk_1280x438.png) no-repeat center/cover;
+    }
+
+    /* よくあるご質問（Ｑ＆Ａ） */
+    #qa dl div {
+        padding: 10px;
+    }
+
+    .map-box {
+        height: 250px;
+    }
+
+    .btn-cta-big {
+        padding: 20px 40px;
+        width: 90%;
+    }
+
+
+}
