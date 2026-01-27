@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SILVA Resorthub | 呼吸を整える、森の休日。</title>
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/js/slick/slick.css">
+    <!--<link rel="icon" href="icons/favicon.ico">-->
+    <link rel="icon" href="assets/images/logo_green.svg" type="image/svg+xml" />
+
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/slick/slick.min.js"></script>
+    <script src="assets/js/script.js" defer></script>
+</head>
+
+<body>
+    <div id="cursor"></div>
+
+    <header>
+
+        <h1 class="logo">
+            <a href="#"><img src="assets/images/logo_green.svg" alt="SILVA Resorthub" class="logo-img"></a>
+            <span><strong>SILVA</strong> Resorthub</span>
+        </h1>
+
+        <button class="hamburger" id="js-hamburger"><span></span><span></span><span></span></button>
+        <nav>
+            <ul class="nav-links" id="js-nav">
+                <li><a href="#concept">CONCEPT</a></li>
+                <li><a href="#news">NEWS</a></li>
+                <li><a href="#stay">STAY</a></li>
+                <li><a href="#experience">EXPERIENCE</a></li>
+                <li><a href="#qa">Q&A</a></li>
+                <li><a href="#access">ACCESS</a></li>
+                <li><a href="#" class="btn-reserve-nav">RESERVATION</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="mv">
+            <div id="mv-slide" class="mv-bg-img">
+                <div><img src="assets/images/mv01_1280x800.png" alt="森の風景"></div>
+                <div><img src="assets/images/mv03_1280x800.png" alt="グランピング室内の写真"></div>
+                <div><img src="assets/images/mv02_1280x800.png" alt="夜の森の風景"></div>
+            </div>
+            <div class="mv-content">
+                <p class="big-text"><span>呼吸を整える、</span><span>森の休日。</span></p>
+                <p>Breathe, Rest, and Retreat in the Forest.</p>
+            </div>
+        </section>
+
+        <section id="concept" class="container">
+            <div class="concept-flex">
+                <div class="concept-text-v">
+                    浅間山の麓<br>標高1,100メートルの静寂。<br>
+                    ここにあるのは、風の音と、鳥の声、<br>
+                    そして自分を取り戻すための時間。<br>
+                    都会の速さから離れ、<br>深い緑に身を委ねる。
+                </div>
+
+                <div class="concept-img">
+                    <img src="assets/images/asatsuyu.png" alt="朝露の森の風景">
+                </div>
+            </div>
+        </section>
+
+        <div id="news" class="news-section">
+            <div class="container  fadeUp-move fadeUp-trigger">
+                <h2 class="gold">NEWS</h2>
+                <div class="news-item"><span class="news-date">2026.01.20</span><span
+                        class="news-text">冬季限定、薪ストーブ付ドームテントのご予約を開始しました。</span></div>
+                <div class="news-item"><span class="news-date">2026.01.10</span><span
+                        class="news-text">【メディア掲載】ライフスタイル誌『Breathe』に掲載されました。</span></div>
+                <div class="news-item"><span class="news-date">2025.12.25</span><span
+                        class="news-text">旧軽井沢ヴィラとの相互利用キャンペーン実施中。</span></div>
+            </div>
+        </div>
+
+        <section id="stay" class="container">
+            <h2 class="gold">STAY</h2>
+            <div class="stay-card fade-right">
+                <div class="stay-img">
+                    <img src="assets/images/stay01_550x400.png" alt="スタンダードプラン">
+                </div>
+                <div class="stay-info">
+                    <span class="gold">01</span>
+                    <h3>Standard Retreat</h3>
+                    <p>基本の1泊2食付。森の食材を活かしたBBQセットが含まれる標準プラン。</p>
+                    <p class="price">28,000円〜</p>
+                </div>
+            </div>
+            <div class="stay-card fade-left">
+                <div class="stay-img">
+                    <img src="assets/images/stay02_550x400.png" alt="サウナプラン">
+                </div>
+                <div class="stay-info">
+                    <span class="gold">02</span>
+                    <h3>Sauna & Detox</h3>
+                    <p>貸切サウナ90分利用券＋デトックスウォーター＋特製朝食付の、心身を整えるプラン。</p>
+                    <p class="price">35,000円〜</p>
+                </div>
+            </div>
+            <div class="stay-card fade-right">
+                <div class="stay-img">
+                    <img src="assets/images/stay03_550x400.png" alt="アニバーサリープラン">
+                </div>
+                <div class="stay-info">
+                    <span class="gold">03</span>
+                    <h3>Anniversary Plan</h3>
+                    <p>焚き火用の薪使い放題＋ホールケーキ＋シャンパン付。特別な記念日向け。</p>
+                    <p class="price">42,000円〜</p>
+                </div>
+            </div>
+            <p style="font-size:0.75rem; opacity:0.6;">※宿泊料金は1名あたりの参考価格です。</p>
+        </section>
+
+
+        <div id="experience" class="experience-section">
+            <section class="container">
+                <h2 class="gold">EXPERIENCE</h2>
+                <div class="exp-grid">
+                    <div class="exp-card">
+                        <div class="exp-img-box" data-label="Forest Sauna">
+                            <img src="assets/images/ex01_336x250.png" alt="薪火で温まるプライベートサウナ">
+                        </div>
+                        <!--<h4>Forest Sauna</h4>-->
+                        <p>薪火で温まるプライベートサウナ</p>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-img-box" data-label="Night Bonfire">
+                            <img src="assets/images/ex02_336x250.png" alt="星空の下で語らう焚き火の時間">
+                        </div>
+                        <!--<h4>Night Bonfire</h4>-->
+                        <p>星空の下で語らう焚き火の時間</p>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-img-box" data-label="Morning Coffee">
+                            <img src="assets/images/ex03_336x250.png" alt="森の目覚めと共に味わう一杯">
+                        </div>
+                        <!--<h4>Morning Coffee</h4>-->
+                        <p>森の目覚めと共に味わう一杯</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="qa" class="container">
+            <h2 class="gold">よくあるご質問</h2>
+            <dl>
+                <div class="accordion">
+                    <dt class="accordion-header">1つのテントに何名まで泊まることが出来ますか？</dt>
+                    <dd class="accordion-content">大人の人数は、1部屋につき4名様までとなります。<br>
+                        1部屋に大人5名様以上の宿泊は出来ませんので、大人5名様以上でご宿泊の場合は、2部屋以上のご予約をお願いいたします。<br>
+                        また、小学生・幼児のお子様を含めて合計5名様以上（例えば大人2名様・幼児のお子様4名様で1部屋）のご宿泊は可能です。<br>
+                        但し、1部屋のベッドの台数は限られておりますので、予めご了承ください。</dd>
+                </div>
+                <div>
+                    <dt class="accordion-header">子供の料金規定を教えてください</dt>
+                    <dd class="accordion-content">
+                        幼児（お食事なし）：無料<br>
+                        幼児（お食事あり）：3,500円<br>                       
+                        小学生：10,000円〜15,000円<br>                   
+                        中学生以上：大人料金</dd>
+                </div>
+                <div>
+                    <dt class="accordion-header">アメニティはどんなものがありますか？</dt>
+                    <dd class="accordion-content">お部屋：バスタオル、フェイスタオル、歯磨きセット、ドライヤー<br>
+                        シャワールーム、貸切風呂：シャンプー、リンス、ボディーソープ、基礎化粧品（メイク落とし、フェイスソープ、化粧水、乳液）、ドライヤー</dd>
+                </div>
+                <div>
+                    <dt class="accordion-header">キャンセル料はいつからかかりますか？</dt>
+                    <dd class="accordion-content">
+                        5日前20％　4日前30％　3日前50％　2日前60％　前日80％　当日100％　不泊100％となります。<br>
+                        ※当日に宿泊人数が減った場合は、減った人数分×7,000円のキャンセル料を頂戴いたします。<br>
+                        ※当日変更の場合は、チェックイン前に090-1234-1234 （11時〜16時まで） へお電話ください。<br>
+                        台風等により当施設の運営が不可となった場合、キャンセル料は発生いたしません。<br>
+                        閉鎖となる場合は前日の正午にお電話やメールにてこちらからご連絡いたします。<br>
+                        尚、お客様自身のご判断でキャンセルをされた場合には、キャンセル料が発生いたしますので、予めご了承くださいませ。
+                    </dd>
+                </div>
+                <div>
+                    <dt class="accordion-header">支払い方法は何がありますか？</dt>
+                    <dd class="accordion-content">
+                        現地支払いは現金・クレジット・電子マネーとなります。<br>
+                        ・クレジット会社<br>
+                        VISA・Master・AmericanExpress・JCB<br>
+                        ・電子マネー決済<br>
+                        交通系IC・各種電子マネー・PayPay</dd>           
+                        
+                </div>
+            </dl>
+        </section>
+
+        <section id="access">
+            <div  class="access-container"><h2 class="gold"><span>ACCESS</span></h2></div>
+            <div class="access-bk">
+                <div class="access-flex container">
+                    <div class="map-box">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51342.557547900986!2d138.57066966776785!3d36.45973494085828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601dda6efb1d5a4f%3A0x42cbad1c257fa!2sKitakaruizawa%2C%20Naganohara%2C%20Agatsuma%20District%2C%20Gunma%20377-1412!5e0!3m2!1sen!2sjp!4v1769322781824!5m2!1sen!2sjp"
+                            width="450" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="transport">
+                        <h3>お車でお越しの方</h3>
+                        <p>上信越自動車道「碓氷軽井沢IC」より約45分。</p>
+                        <h3>電車でお越しの方</h3>
+                        <p>北陸新幹線「軽井沢駅」より送迎バスにて約30分。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <p>特別な一日を、ここから。</p>
+            <a href="#" class="btn-cta-big">オンライン予約はこちら</a>
+            <div class="sns-icon">
+                <a href="#"><img src="assets/images/icon_instagram_50x50.png" alt="公式Instagramへ" width="50" height="50"></a>
+                <a href="#"><img src="assets/images/icon_X_48x50.png" alt="公式Xへ" width="48" height="50"></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#"><img src="assets/images/logo_green.svg" alt="ロゴマーク" width="150" height="150"></a>
+        <p>〒377-1412 群馬県吾妻郡長野原町北軽井沢</p>
+        <p class="copyright">© SILVA Resorthub All Rights Reserved.</p>
+    </footer>
+
+    <!--TOPへ戻る-->
+    <div class="to-top">
+        <a href="#"><img src="assets/images/to-top50x50.png" alt="ページの先頭に戻る" width="50" height="50"></a>
+    </div>
+
+</body>
+
+</html>
