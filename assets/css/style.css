@@ -648,17 +648,6 @@ dd {
     position: relative;
 }
 
-/*
-.btn-cta-big {
-    display: inline-block;
-    background: var(--ash-gold);
-    color: #fff;
-    padding: 20px 80px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    margin-top: 30px;
-}*/
-
 .btn-cta-big {
     display: inline-block;
     color: #fff;
@@ -695,9 +684,6 @@ dd {
     /* 少しだけ浮かせる演出 */
     transform: translateY(-2px);
 }
-
-
-
 
 
 .cta .sns-icon {
