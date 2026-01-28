@@ -38,7 +38,7 @@ address {
 
 
 /* ===========================================
-   ◆ 生成CSS↓↓
+   ページCSS
 ===========================================*/
 
 
@@ -648,6 +648,7 @@ dd {
     position: relative;
 }
 
+/*
 .btn-cta-big {
     display: inline-block;
     background: var(--ash-gold);
@@ -656,7 +657,48 @@ dd {
     text-decoration: none;
     font-size: 1.1rem;
     margin-top: 30px;
+}*/
+
+.btn-cta-big {
+    display: inline-block;
+    color: #fff;
+    padding: 20px 80px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden; /* はみ出した光を隠す */
+
+    /* 背景をグラデーションに変更（ベースの色 → 光 → ベースの色） */
+    background: linear-gradient(
+        120deg, 
+        var(--ash-gold) 0%, 
+        var(--ash-gold) 45%, 
+        rgba(255, 255, 255, 0.6) 50%, 
+        var(--ash-gold) 55%, 
+        var(--ash-gold) 100%
+    );
+    
+    /* 背景サイズを大きくして、光を左側に隠しておく */
+    background-size: 300% 100%;
+    background-position: 100% 0;
+
+    /* アニメーションを滑らかにする */
+    transition: background-position 0.5s ease, transform 0.3s ease;
 }
+
+/* ホバー時の挙動 */
+.btn-cta-big:hover {
+    /* 背景の位置を移動させて、光を右側へ流す */
+    background-position: 0 0;
+    
+    /* 少しだけ浮かせる演出 */
+    transform: translateY(-2px);
+}
+
+
+
+
 
 .cta .sns-icon {
     position: absolute;
