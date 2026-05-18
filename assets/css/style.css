@@ -59,6 +59,7 @@ address {
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px; /* ヘッダーの高さ分を指定 */
+    overflow-x: hidden;
 }
 
 body {
@@ -69,6 +70,7 @@ body {
     letter-spacing: 0.1em;
     font-weight: 300;
     overflow-x: hidden;
+    width: 100%;
 }
 
 /* --- カスタムカーソル --- */
@@ -797,19 +799,17 @@ footer img {
 
     /* 縦積み化: STAY (逆順含むすべてを画像上・テキスト下に固定) */
     .stay-card,
+    .stay-card.fade-right,
     .stay-card.fade-left {
         flex-direction: column;
         gap: 20px;
-        /*transform: translateY(50px);*/
+        transform: translateY(30px);
         /* スマホは横スライドなし */
     }
 
-    /*
-    .stay-card.fade-right,
-    .stay-card.fade-left {
-        transform: translateY(50px);
+    .stay-card.is-visible {
+        transform: translateY(0);
     }
-    */
 
     .stay-img {
         width: 85%;
