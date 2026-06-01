@@ -549,9 +549,43 @@ main {
 }
 
 #qa dl dt {
-    background: url(../images/Qmark30x30.png) no-repeat left center,
-        url(../images/qa_tenkai30x30.png) no-repeat right center;
+    background: url(../images/Qmark30x30.png) no-repeat left center;
+    position: relative;
 }
+
+#qa dl dt::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    background: url(../images/qa_tenkai30x30.png) no-repeat center;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease;
+}
+
+#qa dl dt::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    background: url(../images/qa_tenkai30x30.png) no-repeat center;
+    transform: translateY(-50%) rotate(180deg);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#qa dl dt.active::after {
+    opacity: 0;
+}
+
+#qa dl dt.active::before {
+    opacity: 1;
+}
+
 
 #qa dl dd {
     background: url(../images/Amark30x30.png) no-repeat left top 2px;
